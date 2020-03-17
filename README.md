@@ -1,2 +1,3 @@
-# 8-puzzle-using-astar-algorithm
-Eight puzzle using astar algorithm
+# All Codes
+Messaging Application using FireBase<br>
+Tic Tac Toe using Min-Max Algorithm<br>
