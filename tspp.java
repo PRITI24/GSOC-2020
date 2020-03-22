@@ -5,15 +5,18 @@ import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
 
+import org.checkerframework.checker.index.qual.*;
+
 class graph
 {
 Scanner sc=new Scanner(System.in);
-int v,e;
+@Positive int v,e;
 int mat[][]=new int[20][20];
 
 void accept()
 {
-int start,end,weight;
+@LTLengthOf("mat") int start,end;
+int weight;
 System.out.println("Enter the number of vertices: ");
 v=sc.nextInt();
 System.out.println("Enter the number of edges: ");
@@ -54,19 +57,21 @@ void dfs_1()
 {
 Stack <Integer> s=new Stack<Integer> ();
 System.out.println("Enter the starting vertex: ");
-int start=sc.nextInt();
+
+@LTLengthOf("visited") int start=sc.nextInt();
 int visited[]=new int[v];
 
 s.push(start);
 visited[start]=1;
 System.out.print("Path :    "+start+"     ");
-int vertex=1,cost=0;
+@LTLengthOf("visited") int vertex=1;
+int cost=0;
 int min=Integer.MAX_VALUE;
 
 while(!s.isEmpty())
 {
 int flag=0;
-int ele=s.peek();
+@LTLengthOf("mat") int ele=s.peek();
 
 min=Integer.MAX_VALUE;
 
