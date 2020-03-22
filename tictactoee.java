@@ -1,5 +1,6 @@
 package tictactoe;
 import java.util.*;
+import org.checkerframework.checker.index.qual.*;
 
 class node implements Comparator<node>
 {
@@ -34,10 +35,11 @@ class nodes
 	String[][] start=new String[3][3];
 	void accept()
 	{
+		@IndexFor("this.start") int m=0,n=0;
 		int flag=0;
-		for(int m=0;m<3;m++)
+		for(m=0;m<3;m++)
 		{
-			for(int n=0;n<3;n++)
+			for(n=0;n<3;n++)
 			{
 				start[m][n]="_";
 			}
@@ -48,7 +50,7 @@ class nodes
 		{
 			while(flag==0){
 				int flag1=0;
-				int i=0,j=0;
+				@Positive int i=0,j=0;
 				while(flag1==0)
 				{
 					System.out.println();
@@ -95,7 +97,7 @@ class nodes
 		{
 			while(flag==0){
 				int flag1=0;
-				int i=0,j=0;
+				@Positive int i=0,j=0;
 				System.out.println("Second Player-Computer:");
 				minmax();
 				print(start);
@@ -267,7 +269,8 @@ class nodes
 		if(check_two_elements[0]==-1 && check_two_elements[1]==-1)
 		{
 			node check=pq.peek();
-			int cnt=0;
+			
+			@Positive int cnt=0;
 			ArrayList<node>list=new ArrayList<node>();
 			Iterator<node> itr=pq.iterator();
 			while(itr.hasNext())
