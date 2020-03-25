@@ -10,17 +10,17 @@ import org.checkerframework.checker.index.qual.*;
 class graph
 {
 Scanner sc=new Scanner(System.in);
-@Positive int v,e;
+int v,e;
 int mat[][]=new int[20][20];
 
 void accept()
 {
-@LTLengthOf("mat") int start,end;
+@IndexOf("mat") int start,end;
 int weight;
 System.out.println("Enter the number of vertices: ");
-v=sc.nextInt();
+@Positive v=sc.nextInt();
 System.out.println("Enter the number of edges: ");
-e=sc.nextInt();
+@Positive e=sc.nextInt();
 
 
 for(int i=1;i<=e;i++)
@@ -55,23 +55,23 @@ System.out.println();
 
 void dfs_1()
 {
-Stack <Integer> s=new Stack<Integer> ();
+@LTLengthOf("mat") Stack <Integer> s=new Stack<Integer> ();
 System.out.println("Enter the starting vertex: ");
 
-@LTLengthOf("visited") int start=sc.nextInt();
+@IndexOf("visited") int start=sc.nextInt();
 int visited[]=new int[v];
 
 s.push(start);
 visited[start]=1;
 System.out.print("Path :    "+start+"     ");
-@LTLengthOf("visited") int vertex=1;
+@IndexOf("visited") int vertex=1;
 int cost=0;
 int min=Integer.MAX_VALUE;
 
 while(!s.isEmpty())
 {
 int flag=0;
-@LTLengthOf("mat") int ele=s.peek();
+int ele=s.peek();
 
 min=Integer.MAX_VALUE;
 
@@ -176,4 +176,3 @@ Path :    0     1     4     3     2
 cost = 13
 
  */
- 
