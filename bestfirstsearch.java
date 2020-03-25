@@ -37,7 +37,7 @@ class pair implements Comparator<pair>
 class graph
 {
 Scanner sc=new Scanner(System.in);
-@NonNegative int v,e;
+int v,e;
 int mat[][]=new int[20][20];
 int heuristics[];
 void accept()
@@ -50,8 +50,6 @@ heuristics=new int[v];
 pair p[]=new pair[v];
 System.out.println("Enter the number of edges: ");
 e=sc.nextInt();
-
-
 for(int i=1;i<=e;i++)
 {
 System.out.println("Enter the starting vertex: ");
@@ -98,7 +96,6 @@ start_vertex=sc.nextInt();
 System.out.println("enter end vertex");
 end_vertex=sc.nextInt();
 
-@SuppressWarnings("unused")
 int temp=0;
 	
 heuristics[end_vertex]=0;
@@ -116,7 +113,6 @@ pair p1=pg.remove();
 int node=p1.node;
 arr[j++]=node;
 	
-@SuppressWarnings("unused")
 int heuristic=p1.heuristic_value;
 	
 if(p1.node==p3.node && p1.heuristic_value==p3.heuristic_value)
@@ -147,7 +143,7 @@ while(arr[o]==0){
 o--;
 }
 int arr1[]=new int[v];
-@Positive int r=0;
+@NonNegative int r=0;
 
 int temp2=end_vertex;
 arr1[r++]=temp2;
@@ -177,7 +173,7 @@ for(int i=ans;i>=0;i--){
 System.out.print(arr1[i]+"\t");
 }
 int cost=0;
-@LTLengthOf("arr") int v=r-1;
+@IndexFor("arr") int v=r-1;
 int end=arr1[v];
 v--;
 while(end!=end_vertex)
