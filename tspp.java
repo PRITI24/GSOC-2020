@@ -55,7 +55,7 @@ System.out.println();
 
 void dfs_1()
 {
-@LTLengthOf("mat") Stack <Integer> s=new Stack<Integer> ();
+Stack <@LTLengthOf("mat")  Integer> s=new Stack<Integer> ();
 System.out.println("Enter the starting vertex: ");
 
 @IndexOf("visited") int start=sc.nextInt();
@@ -71,7 +71,7 @@ int min=Integer.MAX_VALUE;
 while(!s.isEmpty())
 {
 int flag=0;
-int ele=s.peek();
+@IndexFor("mat") int ele=s.peek();
 
 min=Integer.MAX_VALUE;
 
