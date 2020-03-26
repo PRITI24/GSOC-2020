@@ -37,7 +37,7 @@ class pair implements Comparator<pair>
 class graph
 {
 Scanner sc=new Scanner(System.in);
-int v,e;
+@NonNegative int v,e;
 int mat[][]=new int[20][20];
 int heuristics[];
 void accept()
