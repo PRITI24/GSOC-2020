@@ -1,10 +1,7 @@
 import java.util.*;
-
-import org.checkerframework.checker.initialization.qual.Initialized;
-import org.checkerframework.checker.nullness.qual.*;
 class node
 {
-	@Initialized @NonNull node left,right;
+	node left,right;
 	int data;
 	node(int d)
 	{
@@ -15,7 +12,7 @@ class node
 }
 class list
 {
-	@Initialized @NonNull node root;
+	node root;
 	list()
 	{
 		root=null;
