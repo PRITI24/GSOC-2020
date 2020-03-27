@@ -1,7 +1,7 @@
 import java.util.*;
 class node
 {
-	node left,right;
+	@MonotonicNonNull node left,right;
 	int data;
 	node(int d)
 	{
@@ -12,7 +12,7 @@ class node
 }
 class list
 {
-	node root;
+	@MonotonicNonNull node root;
 	list()
 	{
 		root=null;
