@@ -1,3 +1,4 @@
 # All Codes
-Messaging Application using FireBase<br>
-Tic Tac Toe using Min-Max Algorithm<br>
+To run the java file on terminal<br>
+1)javac filename.java<br>
+2)java filename<br>
