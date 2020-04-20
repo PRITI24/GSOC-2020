@@ -4,6 +4,7 @@ import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
 import java.util.*;
+import org.checkerframework.checker.index.qual.*;
 class pair implements Comparator<pair>
 {
 	int node;
@@ -36,20 +37,19 @@ class pair implements Comparator<pair>
 class graph
 {
 Scanner sc=new Scanner(System.in);
-int v,e;
+@NonNegative int v,e;
 int mat[][]=new int[20][20];
 int heuristics[];
 void accept()
 {
-int start,end,weight;
+@IndexFor("this.mat") int start,end;
+int weight;
 System.out.println("Enter the number of vertices: ");
 v=sc.nextInt();
 heuristics=new int[v];
 pair p[]=new pair[v];
 System.out.println("Enter the number of edges: ");
 e=sc.nextInt();
-
-
 for(int i=1;i<=e;i++)
 {
 System.out.println("Enter the starting vertex: ");
@@ -73,7 +73,7 @@ p[i]=new pair(i,n);
 }
 
 }
-public int heuristicreturn1(int n)
+public int heuristicreturn1(@Positive int n)
 {
 		for(int i=0;i<v;i++)
 		{
@@ -87,15 +87,17 @@ public int heuristicreturn1(int n)
 public void bestfirstsearch()
 {
 
-int start_vertex; //pair p[]=new pair[v];
+@LTLengthOf("this.heurstics") int start_vertex; //pair p[]=new pair[v];
 PriorityQueue<pair> pg=new PriorityQueue<pair>(this.v,new pair());
 int visited[]=new int[v];
-int end_vertex;
+@Positive int end_vertex;
 System.out.println("enter start vertex");
 start_vertex=sc.nextInt();
 System.out.println("enter end vertex");
 end_vertex=sc.nextInt();
+
 int temp=0;
+	
 heuristics[end_vertex]=0;
 
 pair p=new pair(start_vertex,heuristics[start_vertex]);
@@ -104,13 +106,15 @@ pg.add(p);
 visited[start_vertex]=1;
 
 int arr[]=new int[v];
-int j=0;
+@LTLengthOf("arr") int j=0;
 while(!pg.isEmpty())
 {
 pair p1=pg.remove();
 int node=p1.node;
 arr[j++]=node;
+	
 int heuristic=p1.heuristic_value;
+	
 if(p1.node==p3.node && p1.heuristic_value==p3.heuristic_value)
 {
 //System.out.println("goal state is reached");
@@ -134,12 +138,12 @@ for(int i=0;i<v;i++){
 System.out.print(arr[i]+"\t");		//stores close list
 }
 System.out.println("");
-int o=arr.length-1;
+@Positive int o=arr.length-1;
 while(arr[o]==0){
 o--;
 }
 int arr1[]=new int[v];
-int r=0;
+@NonNegative int r=0;
 
 int temp2=end_vertex;
 arr1[r++]=temp2;
@@ -169,7 +173,7 @@ for(int i=ans;i>=0;i--){
 System.out.print(arr1[i]+"\t");
 }
 int cost=0;
-int v=r-1;
+@IndexFor("arr") int v=r-1;
 int end=arr1[v];
 v--;
 while(end!=end_vertex)
